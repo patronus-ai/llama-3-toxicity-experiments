@@ -12,12 +12,6 @@ def create_client():
     client = Together(api_key=os.environ.get("TOGETHER_API_KEY"))
     return client
 
-
-def create_lepton_client():
-    client = openai.OpenAI(base_url="https://llama3-1-8b.lepton.run/api/v1/", 
-                           api_key=os.environ.get('LEPTON_API_TOKEN'))
-    return client
-
 def get_guard_prompt(agent_prompt):
     content = f"""<|begin_of_text|><|start_header_id|>user<|end_header_id|>
 
@@ -181,22 +175,14 @@ if __name__ == "__main__":
     )
     
     parser.add_argument(
-        "--use_lepton", action=argparse.BooleanOptionalAction, help="Use Lepton instead of Together for inference"
-    )
-    
-    parser.add_argument(
         "--output_folder", type=str, default="output/", help="Path to output folder"
     )
 
     args = parser.parse_args()
 
     guard_responses, base_responses = [], []
-
-    if args.use_lepton:
-        import openai
-        client = create_lepton_client()
-    else: 
-        client = create_client()
+    
+    client = create_client()
     
     data = load_data(args)
 
