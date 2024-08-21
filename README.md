@@ -35,7 +35,7 @@ Feel free to change the `run.sh` parameters. You can use `--help` for more infor
   <img src="images/plot_languages.png" width="48%" /> 
 </p>
 
-We observed that most of the heavy lifting for producing safe outputs is done by the base model itself, and adding Llama-Guard to the pipeline may be redundant. The Llama-3.1 paper tests the Llama-Guard-3 jointly with the Llama-3.1 but we observe that the Guard model is only able to improve safety for the Llama-3.1 on the xstest dataset and the base model outperforms the Guard model for every other dataset. We suspect that this is because the xstest dataset was part of the training examples for the Guard model.
+We observed that most of the heavy lifting for producing safe outputs when the Llama-Guard-3 and Llama-3.1-8B are used together is done by the base Llama-3.1-8B. Through our results, we can conclude that adding Llama-Guard-3 to the pipeline may be redundant.
 
 ## References
 
