@@ -23,7 +23,7 @@ python llama_experiments.py --dataset_name="nicholasKluge/toxic-text" --split="p
 python llama_experiments.py --dataset_name="lmsys/toxic-chat" --split="train" --text_col="user_input" --label_col="toxicity" --chat_response_col="model_output" --num_samples=-1 --data_config="toxicchat0124" --output_folder="outputs"
 
 # BeaverTails
-python llama_experiments.py --dataset_name="PKU-Alignment/BeaverTails" --split="30k_test" --text_col="prompt" --label_col="is_safe" --chat_response_col="response" --num_samples=500 --label_desired="harmful" --output_folder="outputs"
+python llama_experiments.py --dataset_name="PKU-Alignment/BeaverTails" --split="30k_test" --text_col="prompt" --label_col="is_safe" --chat_response_col="response" --num_samples=500 --output_folder="outputs" --label_desired="False"
 
 # Xstest-response
 python llama_experiments.py --dataset_name="allenai/xstest-response" --split="train" --text_col="prompt" --label_col="label" --chat_response_col="response" --num_samples=-1 --label_desired="harmful" --split="response_harmfulness" --output_folder="outputs"
