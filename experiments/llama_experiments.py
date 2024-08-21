@@ -94,17 +94,17 @@ def load_data(args=None):
 
     if "text" not in data.column_names:
         data = data.rename_column(args.text_col, "text")
-
-    if args.label_desired:
+        
+    if args.label_desired is not None or args.label_desired != "#":
         if args.label_col:
             data = data.map(
                 lambda x: {
                     "text": x["text"],
-                    "label": 1.0 if x[args.label_col] == args.label_desired else 0.0,
-                    "model_output": args.chat_response_col if args.chat_response_col else None,
+                    "label": 1 if str(x[args.label_col]) == str(args.label_desired) else 0,
+                    "model_output": x[args.chat_response_col] if args.chat_response_col else None,
                 }
             )
-            data = data.filter(lambda x: int(x[args.label_col]) == 1)
+            data = data.filter(lambda x: int(x["label"]) == 1)
 
     data = data.select(
         range(len(data)) if args.num_samples == -1 else range(args.num_samples)
@@ -190,7 +190,7 @@ if __name__ == "__main__":
     client = create_client()
     
     data = load_data(args)
-
+    
     print(f"Loaded data with {len(data)} samples")
     print("-" * 100)
     print("Example data points:")
