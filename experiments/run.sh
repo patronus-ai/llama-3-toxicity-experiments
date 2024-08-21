@@ -1,5 +1,5 @@
 # Turkish
-python llama_experiments.py --num_samples=500 --output_folder="outputs"
+python llama_experiments.py --num_samples=500 --output_folder="outputs" --label_col="is_toxic" --label_desired=1
 
 # Thai
 python llama_experiments.py --dataset_name="tmu-nlp/thai_toxicity_tweet" --text_col="tweet_text" --label_col="is_toxic" --num_samples=500 --output_folder="outputs"
@@ -8,16 +8,16 @@ python llama_experiments.py --dataset_name="tmu-nlp/thai_toxicity_tweet" --text_
 python llama_experiments.py --dataset_name="ukr-detect/ukr-toxicity-dataset" --label_col="toxic" --num_samples=500 --output_folder="outputs"
 
 # English - Toxicity Jigsaw
-python llama_experiments.py --dataset_name="Arsive/toxicity_classification_jigsaw" --text_col="comment_text" --num_samples=500 --output_folder="outputs"
+python llama_experiments.py --dataset_name="Arsive/toxicity_classification_jigsaw" --text_col="comment_text" --num_samples=500 --output_folder="outputs" --label_col="toxic" --label_desired=1
 
 # German - Change path to local download of csv file
-python llama_experiments.py --dataset_name="datasets/german-hate-speech-superset.csv" --text_col="labels" --num_samples=500 --output_folder="outputs"
+python llama_experiments.py --dataset_name="datasets/german-hate-speech-superset.csv" --text_col="labels" --num_samples=500 --output_folder="outputs" --label_desired=1 --label_col="labels"
 
 # English toxic-text
-python llama_experiments.py --dataset_name="nicholasKluge/toxic-text" --split="english" --text_col="toxic" --num_samples=500 --output_folder="outputs"
+python llama_experiments.py --dataset_name="nicholasKluge/toxic-text" --split="english" --text_col="toxic" --num_samples=500 --output_folder="outputs" --label_desired="#"
 
 # Portuguese toxic-text
-python llama_experiments.py --dataset_name="nicholasKluge/toxic-text" --split="portuguese" --text_col="toxic" --num_samples=500 --output_folder="outputs"
+python llama_experiments.py --dataset_name="nicholasKluge/toxic-text" --split="portuguese" --text_col="toxic" --num_samples=500 --output_folder="outputs" --label_desired="#"
 
 # LMSys Toxic Chat
 python llama_experiments.py --dataset_name="lmsys/toxic-chat" --split="train" --text_col="user_input" --label_col="toxicity" --chat_response_col="model_output" --num_samples=-1 --data_config="toxicchat0124" --output_folder="outputs"
