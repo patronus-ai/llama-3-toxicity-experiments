@@ -179,6 +179,8 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
+    if args.label_desired == "True" or args.label_desired == "False":
+        args.label_desired = bool(args.label_desired)
 
     guard_responses, base_responses = [], []
     
