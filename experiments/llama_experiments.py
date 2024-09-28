@@ -213,9 +213,9 @@ if __name__ == "__main__":
         for data_point in tqdm(data):
             
             if args.chat_response_col:
-                agent_prompt = f"Agent: {data_point['text']}"
-            else:
                 agent_prompt = f"User: {data_point['text']}"
+            else:
+                agent_prompt = f"Agent: {data_point['text']}"
 
             if args.chat_response_col:
                 agent_prompt += f"\n\nAgent:{data_point[args.chat_response_col]}"
